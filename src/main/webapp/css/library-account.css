@@ -1,0 +1,56 @@
+
+.library-badge {
+	background: #dd0031;
+	border: 0;
+	color: #fff;
+	margin-left: .5em;
+	/*margin: 0 0 0 .5em;*/
+	padding: 3px 7px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+	display: inline-block;
+	line-height: 1;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+.library-login {	
+	margin: 0 0 -20px 0;
+	float:right;
+}
+
+.move-left {
+	float:left;
+	margin-bottom: 10px;
+}
+
+/* general button styles */
+.library-login .btn {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	/* background-color: #fff; */
+	border-color: #ccc;
+}
+
+/* blue button */
+.library-login button.btn.btn-blue {
+	color: white;
+	border-color: #285e8e;
+	background: #3071a9;
+}
+
+.library-login button.btn.btn-blue:hover {
+	background: #1f5c8e;
+}

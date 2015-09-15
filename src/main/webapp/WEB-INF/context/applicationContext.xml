@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to Jasig under one or more contributor license
+    agreements. See the NOTICE file distributed with this work
+    for additional information regarding copyright ownership.
+    Jasig licenses this file to you under the Apache License,
+    Version 2.0 (the "License"); you may not use this file
+    except in compliance with the License. You may obtain a
+    copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on
+    an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied. See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <!-- This is the root Spring WebApplicationContext.  Place in this context the service, dao, and utility-level beans
+       the web tier will access.
+
+       NOTE:  If you have multiple portlets in portlet.xml, you can move beans from the web-tier Spring WebApplicationContext
+       to the root context to avoid having the bean definitions duplicated.
+  -->
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:configuration.properties"/>
+  </bean>
+
+  <context:component-scan base-package=" uk.ac.ed.portlets.almaportlet.service" />
+  <context:component-scan base-package=" uk.ac.ed.portlets.almaportlet.dao" />
+  <context:annotation-config/>
+
+  <bean id="almaReaderService" class="uk.ac.ed.portlets.almaportlet.service.AlmaReaderService">
+    <property name="applicationKey" value="${applicationKey}"/>
+    <property name="almaBaseURL" value="${almaBaseURL}"/>
+  </bean>
+
+</beans>
